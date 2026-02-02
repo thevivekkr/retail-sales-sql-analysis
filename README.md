@@ -53,4 +53,36 @@ CREATE TABLE sales (
 );
 '''
 
+-- Total number of transactions
+SELECT COUNT(*) AS total_transactions
+FROM sales;
+
+-- Total sales by category
+SELECT category, SUM(total_sale) AS category_sales
+FROM sales
+GROUP BY category;
+
+-- Average age by gender
+SELECT gender, AVG(age) AS avg_age
+FROM sales
+GROUP BY gender;
+
+-- Monthly sales trend
+SELECT MONTH(sale_date) AS month,
+       SUM(total_sale) AS monthly_sales
+FROM sales
+GROUP BY month
+ORDER BY month;
+
+-- Profit per transaction
+SELECT transactions_id,
+       total_sale - cogs AS profit
+FROM sales;
+
+-- Rank customers by total sales
+SELECT customer_id,
+       SUM(total_sale) AS total_spent,
+       RANK() OVER (ORDER BY SUM(total_sale) DESC) AS sales_rank
+FROM sales
+GROUP BY customer_id;
 
