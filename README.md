@@ -34,7 +34,7 @@ The dataset includes transaction-level sales data with customer demographics, pr
 
 ## Outcome
 This project demonstrates practical SQL skills for real-world data analysis and reporting.
-
+'''SQL
 CREATE DATABASE project1;
 USE project1;
 
@@ -51,6 +51,6 @@ CREATE TABLE sales (
     cogs DECIMAL(10,2),
     total_sale DECIMAL(10,2)
 );
-
+'''
 
 
